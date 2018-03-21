@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCSharp", "MyCSharp\MyCSharp.csproj", "{C44FEED9-52BB-4F56-A110-9EA57615B800}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCSharpTests", "MyCSharpTests\MyCSharpTests.csproj", "{A98E5AEC-9332-4FB7-901A-27F7B7E3206E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{56B651F7-E0D2-4E5C-9E0B-9F1CAC9AEE99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C44FEED9-52BB-4F56-A110-9EA57615B800}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C44FEED9-52BB-4F56-A110-9EA57615B800}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C44FEED9-52BB-4F56-A110-9EA57615B800}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C44FEED9-52BB-4F56-A110-9EA57615B800}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A98E5AEC-9332-4FB7-901A-27F7B7E3206E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A98E5AEC-9332-4FB7-901A-27F7B7E3206E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A98E5AEC-9332-4FB7-901A-27F7B7E3206E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A98E5AEC-9332-4FB7-901A-27F7B7E3206E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56B651F7-E0D2-4E5C-9E0B-9F1CAC9AEE99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56B651F7-E0D2-4E5C-9E0B-9F1CAC9AEE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56B651F7-E0D2-4E5C-9E0B-9F1CAC9AEE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56B651F7-E0D2-4E5C-9E0B-9F1CAC9AEE99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
