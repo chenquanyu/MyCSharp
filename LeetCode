@@ -1,0 +1,21 @@
+
+BinarySearch
+    public int BinarySearch(int[] array,int searchItem,int low, int high){
+        if(searchItem<array[low] || searchItem>array[high]){
+            return -1;
+        }
+        
+        while(low<=high){
+            int mid = (low+high)/2;
+            if(array[mid] > searchItem){
+                high = mid-1;
+            }else if(array[mid] < searchItem){
+                low = mid +1;
+            }else{
+                return mid;
+            }
+        }
+        
+        return -1;
+    }
+    
