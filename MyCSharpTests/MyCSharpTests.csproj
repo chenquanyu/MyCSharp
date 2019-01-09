@@ -63,9 +63,7 @@
   <ItemGroup>
     <Compile Include="ClrPractice\AwaitSeqTests.cs" />
     <Compile Include="DAL\DALBaseTests.cs" />
-    <Compile Include="DBHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UtilsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyCSharp\MyCSharp.csproj">
