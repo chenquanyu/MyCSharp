@@ -17,6 +17,7 @@ namespace MyCSharp.Models
         public string Comments { get; set; }
         public bool? IsSingle { get; set; }
         public RoleType? RoleType { get; set; }
+        public byte[] PlayerImg { get; set; }
     }
 
     public enum RoleType
