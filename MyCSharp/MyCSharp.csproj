@@ -100,10 +100,13 @@
     <Compile Include="Models\TestKrain.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\SqlHelper.cs" />
+    <Compile Include="Utility\DataTableHelper.cs" />
     <Compile Include="Utility\MyCsvHelper.cs" />
     <Compile Include="Utility\EncodingHelper.cs" />
     <Compile Include="Utility\ExcelHelper.cs" />
     <Compile Include="Utility\NpoiHelper.cs" />
+    <Compile Include="Utility\ReflectionHelper.cs" />
     <Compile Include="Utility\Utils.cs" />
   </ItemGroup>
   <ItemGroup>

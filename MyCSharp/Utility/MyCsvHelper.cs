@@ -20,9 +20,12 @@ namespace MyCSharp.Utility
             using (var reader = new StreamReader(stream))
             using (var csv = new CsvReader(reader))
             {
-                //csv.Read();
-                //csv.ReadHeader();
-                //csv.Read();
+                csv.Configuration.TypeConverterOptionsCache.GetOptions<int?>().NullValues.Add("NULL");
+                csv.Configuration.TypeConverterOptionsCache.GetOptions<decimal?>().NullValues.Add("NULL");
+                csv.Configuration.TypeConverterOptionsCache.GetOptions<DateTime?>().NullValues.Add("NULL");
+                csv.Configuration.TypeConverterOptionsCache.GetOptions<double?>().NullValues.Add("NULL");
+                csv.Configuration.TypeConverterOptionsCache.GetOptions<bool?>().NullValues.Add("NULL");
+
                 result = csv.GetRecords<T>().ToList();
                 return result;
             }

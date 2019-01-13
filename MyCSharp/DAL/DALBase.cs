@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MyCSharp.Models;
 using System.Configuration;
+using MyCSharp.Utility;
 
 namespace MyCSharp.DAL
 {
@@ -24,7 +25,7 @@ namespace MyCSharp.DAL
             //    return cmd.ExecuteNonQuery();
             //}
 
-            var dt = Utils.ConstructDataTable(objs);
+            var dt = DataTableHelper.ConvertToDataTable(objs);
             using (var destinationConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["TestKrain1"].ConnectionString))
             using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destinationConnection))
             {
@@ -41,13 +42,13 @@ namespace MyCSharp.DAL
         public int BatchUpdate<T>(List<T> objs)
         {
             //var sql = dbHelper.ConstructUpdateSql(objs, out paras);
-            var sql = Utils.ConstructUpdateSql(objs);
+            var sql = SqlHelper.ConstructUpdateSql(objs);
             return context.Database.ExecuteSqlCommand(sql);
         }
 
         public int BatchDelete<T>(List<T> objs)
         {
-            var sql = Utils.ConstructDeleteSql(objs);
+            var sql = SqlHelper.ConstructDeleteSql(objs);
             return context.Database.ExecuteSqlCommand(sql);
         }
 

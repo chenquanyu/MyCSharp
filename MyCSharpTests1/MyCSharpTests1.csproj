@@ -98,6 +98,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="TestData\lofts.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyCSharp\MyCSharp.csproj">

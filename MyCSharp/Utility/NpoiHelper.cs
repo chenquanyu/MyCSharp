@@ -111,11 +111,11 @@ namespace MyCSharp.Utility
             var workbook = cell.Sheet.Workbook;
             var sheet = cell.Sheet;
 
-            ///计算图片的长度和宽度
+            /* Calcualte the image size */
             MemoryStream ms = new MemoryStream(picBytes);
             Image Img = Bitmap.FromStream(ms, true);
-            double ImageOriginalWidth = Img.Width;//原始图片的长度
-            double ImageOriginalHeight = Img.Height;//原始图片的宽度
+            int ImageOriginalWidth = Img.Width;
+            int ImageOriginalHeight = Img.Height;
 
             cell.Row.Height = (short)(ImageOriginalHeight * 15);
             cell.Sheet.SetColumnWidth(cell.ColumnIndex, (int)(ImageOriginalWidth * 36.5));
