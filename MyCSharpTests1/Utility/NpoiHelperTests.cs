@@ -48,6 +48,7 @@ namespace MyCSharp.Utility.Tests
                     new ExcelTemplateColumn{
                         ColumnName ="Birthday",
                         ColumnTitle ="生日",
+                        Width = 20
                     },
                     new ExcelTemplateColumn{
                         ColumnName ="Comments",
@@ -57,7 +58,7 @@ namespace MyCSharp.Utility.Tests
                         ColumnName ="PlayerImg",
                         ColumnTitle ="图片",
                         Format =PictureType.JPEG.ToString(),
-                        Height = 50,
+                        //Height = 50,
                         Width = 10
                     },
                 },

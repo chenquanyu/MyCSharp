@@ -77,11 +77,11 @@ namespace MyCSharp.Utility
                         var row1 = 2;
                         var col1 = excelInfo.Count + 1;
                         /* Add Picture to Workbook, Specify picture type as PNG and Get an Index */
-                        int pictureIdx = workbook.AddPicture(picBytes, NPOI.SS.UserModel.PictureType.PNG);  //添加图片
+                        int pictureIdx = workbook.AddPicture(picBytes, PictureType.PNG);  //添加图片
                         /* Create the drawing container */
                         IDrawing drawing = (XSSFDrawing)sheet.CreateDrawingPatriarch();
                         /* Create an anchor point */
-                        IClientAnchor anchor = new XSSFClientAnchor(0, 0, 0, 240, col1, row1, col1 + 1, row1 + 1);
+                        IClientAnchor anchor = new XSSFClientAnchor(1, 1, 0, 0, col1, row1, col1 + 1, row1 + 1);
 
                         /* Invoke createPicture and pass the anchor point and ID */
                         IPicture picture = (XSSFPicture)drawing.CreatePicture(anchor, pictureIdx);
@@ -114,11 +114,12 @@ namespace MyCSharp.Utility
             /* Calcualte the image size */
             MemoryStream ms = new MemoryStream(picBytes);
             Image Img = Bitmap.FromStream(ms, true);
-            int ImageOriginalWidth = Img.Width;
-            int ImageOriginalHeight = Img.Height;
+            double ImageOriginalWidth = Img.Width;
+            double ImageOriginalHeight = Img.Height;
+            double scale = cell.Sheet.GetColumnWidth(cell.ColumnIndex)/36.5 / ImageOriginalWidth;
 
-            cell.Row.Height = (short)(ImageOriginalHeight * 15);
-            cell.Sheet.SetColumnWidth(cell.ColumnIndex, (int)(ImageOriginalWidth * 36.5));
+            cell.Row.Height = (short)(ImageOriginalHeight * scale * 15);
+            //cell.Sheet.SetColumnWidth(cell.ColumnIndex, (int)(ImageOriginalWidth * scale * 36.5));
 
             /* Add Picture to Workbook, Specify picture type as PNG and Get an Index */
             int pictureIdx = workbook.AddPicture(picBytes, pt);  //添加图片
@@ -132,7 +133,7 @@ namespace MyCSharp.Utility
             /* Invoke createPicture and pass the anchor point and ID */
             IPicture picture = drawing.CreatePicture(anchor, pictureIdx);
             /* Call resize method, which resizes the image */
-            picture.Resize();
+            picture.Resize(1);
 
             picBytes = null;
         }
@@ -141,8 +142,6 @@ namespace MyCSharp.Utility
         {
             if (Enum.TryParse(column.Format, out PictureType pt))
             {
-                //cell.Row.HeightInPoints = (short)(column.Height * 20);
-                //cell.Sheet.SetColumnWidth(cell.ColumnIndex, column.Width * 256);
                 InsertImage(cell, (byte[])value, pt);
             }
             else if (Enum.TryParse(column.Format, out CellType type))
@@ -167,7 +166,13 @@ namespace MyCSharp.Utility
             var columns = template.Columns;
             for (int i = 0; i < columns.Count; i++)
             {
-                headerRow.CreateCell(i).SetCellValue(columns[i].ColumnTitle);
+                ICell cell = headerRow.CreateCell(i);
+                var column = columns[i];
+                cell.SetCellValue(column.ColumnTitle);
+                if (column.Width > 0)
+                {
+                    cell.Sheet.SetColumnWidth(cell.ColumnIndex, columns[i].Width * 256);
+                }
             }
             int rowIndex = 1;
             foreach (var row in data)
