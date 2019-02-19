@@ -87,6 +87,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Algorithms\LeetCodeTests.cs" />
     <Compile Include="ClrPractice\AwaitSeqTests.cs" />
     <Compile Include="DAL\DALBaseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
