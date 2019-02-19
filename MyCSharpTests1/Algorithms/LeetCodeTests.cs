@@ -20,5 +20,15 @@ namespace MyCSharp.Algorithms.Tests
             Assert.IsTrue(LeetCode.IsMatch("aaab", ".*"));
             Assert.IsFalse(LeetCode.IsMatch("aaab", ".*c"));
         }
+
+        [TestMethod()]
+        public void IsMatchDPTest()
+        {
+            Assert.IsTrue(LeetCode.IsMatchDP("aaa", "a.*"));
+            Assert.IsTrue(LeetCode.IsMatchDP("aaa", "aaa"));
+            Assert.IsTrue(LeetCode.IsMatchDP("aaab", "a*b"));
+            Assert.IsTrue(LeetCode.IsMatchDP("aaab", ".*"));
+            Assert.IsFalse(LeetCode.IsMatchDP("aaab", ".*c"));
+        }
     }
 }

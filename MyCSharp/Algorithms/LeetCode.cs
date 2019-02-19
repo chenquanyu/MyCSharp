@@ -36,7 +36,7 @@ namespace MyCSharp.Algorithms
             int sLength = s.Length;
             int pLength = p.Length;
             // i, j     s [i,], p [j,]
-            bool[,] results = new bool[sLength, pLength];
+            bool[,] results = new bool[sLength + 1, pLength + 1];
             results[sLength, pLength] = true;
 
             for (int i = sLength; i >= 0; i--)
@@ -50,22 +50,14 @@ namespace MyCSharp.Algorithms
                     {
                         results[i, j] = (firstMatch && results[i + 1, j]) || (results[i, j + 2]);
                     }
-
-                    results[i, j] = firstMatch && results[i + 1, j + 1];
+                    else
+                    {
+                        results[i, j] = firstMatch && results[i + 1, j + 1];
+                    }
                 }
             }
 
             return results[0, 0];
-
-            //bool firstMatch = s.Length > 0 && (s[0] == p[0] || p[0] == '.');
-
-            //// deal with '*'
-            //if (p.Length >= 2 && p[1] == '*')
-            //{
-            //    return (firstMatch && IsMatch(s.Substring(1), p)) || (IsMatch(s, p.Substring(2)));
-            //}
-
-            //return firstMatch && IsMatch(s.Substring(1), p.Substring(1));
         }
 
 
