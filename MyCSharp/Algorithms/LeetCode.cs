@@ -61,7 +61,33 @@ namespace MyCSharp.Algorithms
         }
 
 
+        /// <summary>
+        /// 29. Divide Two Integers
+        /// Given two integers dividend and divisor, divide two integers without using multiplication, division and mod operator.
+        /// </summary>
+        public static int Divide(int dividend, int divisor)
+        {
+            if (dividend == int.MinValue && divisor == -1)
+            {
+                return int.MaxValue;
+            }
 
+            bool isNeg = (dividend > 0) ^ (divisor > 0);
+            long dv = Math.Abs((long)dividend);
+            long dr = Math.Abs((long)divisor);
+
+            int result = 0;
+            for (int i = 31; i >= 0; i--)
+            {
+                if (dv >> i >= dr)
+                {
+                    result += 1 << i;
+                    dv -= dr << i;
+                }
+            }
+
+            return isNeg ? -result : result;
+        }
 
 
 
