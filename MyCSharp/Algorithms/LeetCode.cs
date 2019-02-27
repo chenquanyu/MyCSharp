@@ -90,6 +90,60 @@ namespace MyCSharp.Algorithms
         }
 
 
+        public static int CountHeight(int[] A)
+        {
+            if (A == null)
+            {
+                return 0;
+            }
+
+            int length = A.Length;
+            if (length <= 1)
+            {
+                return length;
+            }
+
+            int left = 0, right = 0, maxPeriod = 1;
+            for (int i = 1; i < length; i++)
+            {
+                if (i == 1)
+                {
+                    if (A[i] != A[i - 1])
+                    {
+                        right = 1;
+                        maxPeriod = 2;
+                    }
+                    continue;
+                }
+
+                //if ((A[i] > A[i - 1] && A[i - 1] < A[i - 2]) || (A[i] < A[i - 1] && A[i - 1] > A[i - 2]))
+                if (A[i - 1] != A[i - 2] && A[i] != A[i - 1] && (A[i] > A[i - 1] ^ A[i - 1] > A[i - 2]))
+                {
+                    right = i;
+                }
+                else
+                {
+                    int temp = right - left + 1;
+                    if (temp > maxPeriod) maxPeriod = temp;
+
+                    if (A[i - 1] == A[i])
+                    {
+                        left = i;
+                    }
+                    else { left = i - 1; }
+
+                    right = i;
+                }
+
+                if (i == length - 1)
+                {
+                    int temp = right - left + 1;
+                    if (temp > maxPeriod) maxPeriod = temp;
+                }
+            }
+            return maxPeriod;
+        }
+
 
 
     }

@@ -30,5 +30,20 @@ namespace MyCSharp.Algorithms.Tests
             Assert.IsTrue(LeetCode.IsMatchDP("aaab", ".*"));
             Assert.IsFalse(LeetCode.IsMatchDP("aaab", ".*c"));
         }
+
+        [TestMethod()]
+        public void CountHeightTest()
+        {
+            Assert.AreEqual(0, LeetCode.CountHeight(new int[] { }));
+            Assert.AreEqual(1, LeetCode.CountHeight(new int[] { 100, 100 }));
+            Assert.AreEqual(2, LeetCode.CountHeight(new int[] { 100, 101 }));
+            Assert.AreEqual(2, LeetCode.CountHeight(new int[] { 9, 9, 2 }));
+            Assert.AreEqual(2, LeetCode.CountHeight(new int[] { 9, 9, 10 }));
+            Assert.AreEqual(2, LeetCode.CountHeight(new int[] { 2, 9, 9 }));
+            Assert.AreEqual(2, LeetCode.CountHeight(new int[] { 10, 9, 9 }));
+            Assert.AreEqual(5, LeetCode.CountHeight(new int[] { 10, 9, 8, 9, 8, 9 }));
+            Assert.AreEqual(5, LeetCode.CountHeight(new int[] { 10, 9, 8, 9, 8, 9, 10 }));
+
+        }
     }
 }
