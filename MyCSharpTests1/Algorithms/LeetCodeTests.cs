@@ -80,5 +80,48 @@ namespace MyCSharp.Algorithms.Tests
 
             // Assert.Fail();
         }
+
+        [TestMethod()]
+        public void MySqrtTest()
+        {
+            int range = 1000000;
+
+            for (var i = 0; i <= range; i++)
+            {
+                int expected = (int)Math.Sqrt(i);
+                int actual = leetCode.MySqrt(i);
+                Assert.AreEqual(expected, actual);
+            }
+
+            for (var i = int.MaxValue; i >= int.MaxValue - range; i--)
+            {
+                int expected = (int)Math.Sqrt(i);
+                int actual = leetCode.MySqrt(i);
+                Assert.AreEqual(expected, actual);
+            }
+
+        }
+
+        [TestMethod()]
+        public void MySqrt2Test()
+        {
+            int range = 1000000;
+
+            for (var i = 0; i <= range; i++)
+            {
+                int expected = (int)Math.Sqrt(i);
+                int actual = leetCode.MySqrt2(i);
+                Assert.AreEqual(expected, actual);
+            }
+
+            for (var i = int.MaxValue; i >= int.MaxValue - range; i--)
+            {
+                int expected = (int)Math.Sqrt(i);
+                int actual = leetCode.MySqrt2(i);
+                Assert.AreEqual(expected, actual);
+            }
+
+
+        }
     }
 }

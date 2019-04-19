@@ -300,7 +300,7 @@ namespace MyCSharp.Algorithms
             long k = n;
             if (k < 0)
             {
-                x = 1/x;
+                x = 1 / x;
                 k = -k;
             }
 
@@ -323,6 +323,48 @@ namespace MyCSharp.Algorithms
 
 
         }
+
+        public int MySqrt(int x)
+        {
+            long i = 0;
+            while (i * i <= x)
+            {
+                i += 100;
+            }
+            i -= 100;
+
+            while (i * i <= x)
+            {
+                i++;
+            }
+
+            return (int)(i - 1);
+        }
+
+        public int MySqrt2(int x)
+        {
+            long i = 0;
+            int step = 10000;
+            while (step >= 1)
+            {
+                i = MySqrtStep(i, step, x);
+                step = step / 10;
+            }
+
+            return (int)i;
+        }
+
+        private long MySqrtStep(long start, int step, int x)
+        {
+            long i = start;
+            while (i * i <= x)
+            {
+                i += step;
+            }
+
+            return i - step;
+        }
+
 
     }
 }
