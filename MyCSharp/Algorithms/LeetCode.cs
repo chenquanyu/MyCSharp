@@ -324,6 +324,10 @@ namespace MyCSharp.Algorithms
 
         }
 
+
+        /// <summary>
+        /// 69
+        /// </summary>
         public int MySqrt(int x)
         {
             long i = 0;
@@ -365,6 +369,54 @@ namespace MyCSharp.Algorithms
             return i - step;
         }
 
+        /// <summary>
+        /// 36. Valid Sudoku
+        /// Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated
+        /// </summary>
+        public bool IsValidSudoku(char[][] board)
+        {
+            HashSet<char>[] list = new HashSet<char>[27];
+            for (int i = 0; i < 27; i++)
+            {
+                list[i] = new HashSet<char>();
+            }
+
+            for (int i = 0; i < 9; i++)
+                for (int j = 0; j < 9; j++)
+                {
+                    var current = board[i][j];
+                    if (current == '.')
+                    {
+                        continue;
+                    }
+
+                    // row
+                    if (list[i].Contains(current))
+                    {
+                        return false;
+                    }
+                    list[i].Add(current);
+
+                    // column
+                    if (list[j + 9].Contains(current))
+                    {
+                        return false;
+                    }
+                    list[j + 9].Add(current);
+
+                    // area
+                    int index = i / 3 * 3 + j / 3 + 18;
+                    if (list[index].Contains(current))
+                    {
+                        return false;
+                    }
+                    list[index].Add(current);
+
+                }
+
+            return true;
+
+        }
 
     }
 }

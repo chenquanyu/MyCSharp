@@ -123,5 +123,39 @@ namespace MyCSharp.Algorithms.Tests
 
 
         }
+
+        [TestMethod()]
+        public void IsValidSudokuTest()
+        {
+
+            var case1 = JsonConvert.DeserializeObject<char[][]>("[[\"5\", \"3\", \".\", \".\", \"7\", \".\", \".\", \".\", \".\"],  [\"6\", \".\", \".\", \"1\", \"9\", \"5\", \".\", \".\", \".\"],  [\".\", \"9\", \"8\", \".\", \".\", \".\", \".\", \"6\", \".\"],  [\"8\", \".\", \".\", \".\", \"6\", \".\", \".\", \".\", \"3\"],  [\"4\", \".\", \".\", \"8\", \".\", \"3\", \".\", \".\", \"1\"],  [\"7\", \".\", \".\", \".\", \"2\", \".\", \".\", \".\", \"6\"],  [\".\", \"6\", \".\", \".\", \".\", \".\", \"2\", \"8\", \".\"],  [\".\", \".\", \".\", \"4\", \"1\", \"9\", \".\", \".\", \"5\"],  [\".\", \".\", \".\", \".\", \"8\", \".\", \".\", \"7\", \"9\"]]");
+
+            Assert.IsTrue(leetCode.IsValidSudoku(case1));
+
+        }
+
+
+        [TestMethod()]
+        public void ArrayTest()
+        {
+
+            var case1 = new char[3][];
+            case1[0] = new char[] { '1', '2', '3' };
+            case1[1] = new char[] { '4', '5', '6' };
+            case1[2] = new char[] { '7', '8', '9' };
+
+            var case2 = new char[3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                {
+                    case2[i, j] = (i * 3 + 1 + j).ToString()[0];
+                }
+
+            var str1 = JsonConvert.SerializeObject(case1);
+            var str2 = JsonConvert.SerializeObject(case2);
+
+            Assert.AreEqual(str1, str2);
+        }
+
     }
 }
