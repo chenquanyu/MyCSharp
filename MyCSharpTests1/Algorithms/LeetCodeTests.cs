@@ -157,5 +157,19 @@ namespace MyCSharp.Algorithms.Tests
             Assert.AreEqual(str1, str2);
         }
 
+        [TestMethod()]
+        public void SetZeroesTest()
+        {
+            var case1 = new int[3][];
+            case1[0] = new int[] { 1, 0, 3 };
+            case1[1] = new int[] { 4, 0, 6 };
+            case1[2] = new int[] { 7, 8, 9 };
+
+            leetCode.SetZeroes(case1);
+
+
+            var str1 = JsonConvert.SerializeObject(case1);
+            
+        }
     }
 }
