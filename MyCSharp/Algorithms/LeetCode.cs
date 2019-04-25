@@ -497,5 +497,81 @@ namespace MyCSharp.Algorithms
 
         }
 
+        /// <summary>
+        /// 76. Minimum Window Substring
+        /// </summary>
+        public string MinWindow(string s, string t)
+        {
+            if (string.IsNullOrEmpty(t))
+            {
+                return string.Empty;
+            }
+
+            // count char times
+            Dictionary<char, int> store = new Dictionary<char, int>();
+            Dictionary<char, int> tCounts = new Dictionary<char, int>();
+
+            foreach (char item in t)
+            {
+                if (!store.ContainsKey(item))
+                {
+                    store.Add(item, 0);
+                }
+
+                if (tCounts.ContainsKey(item))
+                {
+                    tCounts[item]++;
+                }
+                else
+                {
+                    tCounts.Add(item, 1);
+                }
+
+            }
+
+            //char startChar = 0;
+            int start = 0;
+            int end = 0;
+            int tempLength = int.MaxValue;
+            int tempStart = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                var endChar = s[i];
+                if (!store.ContainsKey(endChar))
+                {
+                    continue;
+                }
+
+                end = i;
+                store[endChar]++;
+
+                // all the characters are in, for this end find the shortest string
+                if (store.All(p => p.Value >= tCounts[p.Key]))
+                {
+                    var startChar = store.ElementAt(0).Key;
+                    while (store[startChar] >= tCounts[startChar])
+                    {
+                        if (end - start + 1 < tempLength)
+                        {
+                            tempStart = start;
+                            tempLength = end - start + 1;
+                        }
+
+                        if (store.ContainsKey(s[start]))
+                        {
+                            startChar = s[start];
+                            store[startChar]--;
+                        }
+                        start++;
+                    }
+                }
+            }
+
+            return tempLength == int.MaxValue ? string.Empty : s.Substring(tempStart, tempLength);
+
+        }
+
+
     }
 }

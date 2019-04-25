@@ -169,7 +169,17 @@ namespace MyCSharp.Algorithms.Tests
 
 
             var str1 = JsonConvert.SerializeObject(case1);
-            
+
+        }
+
+        [TestMethod()]
+        public void MinWindowTest()
+        {
+            string s = "ADOBECODEBANC";
+            string t = "ABC";
+
+            var result = leetCode.MinWindow(s, t);
+
         }
     }
 }
