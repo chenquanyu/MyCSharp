@@ -79,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithms\Graph.cs" />
     <Compile Include="Algorithms\LeetCode.cs" />
     <Compile Include="ClrPractice\AwaitSeq.cs" />
     <Compile Include="ClrPractice\GCNotification.cs" />
