@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCSharp", "MyCSharp\MyCSha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCSharpTests1", "MyCSharpTests1\MyCSharpTests1.csproj", "{3B04AFD3-91C4-4B70-AFAA-6DE334017835}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBHelper", "DBHelper\DBHelper.csproj", "{BC954FB3-E0E9-4DA6-9ADA-EB7F999087EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3B04AFD3-91C4-4B70-AFAA-6DE334017835}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B04AFD3-91C4-4B70-AFAA-6DE334017835}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B04AFD3-91C4-4B70-AFAA-6DE334017835}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC954FB3-E0E9-4DA6-9ADA-EB7F999087EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC954FB3-E0E9-4DA6-9ADA-EB7F999087EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC954FB3-E0E9-4DA6-9ADA-EB7F999087EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC954FB3-E0E9-4DA6-9ADA-EB7F999087EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
