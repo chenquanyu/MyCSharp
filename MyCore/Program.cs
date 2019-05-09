@@ -8,7 +8,8 @@ namespace MyCore
     {
         static void Main(string[] args)
         {
-            var helper = new LevelDBHelper(@"D:\temp\leveldb");
+            //var helper = new LevelDBHelper(@"D:\temp\leveldb");
+            var helper = new RocksDBHelper(@"D:\temp\rocksdb");
 
             System.Diagnostics.Stopwatch sp = new System.Diagnostics.Stopwatch();
             sp.Start();
@@ -21,6 +22,7 @@ namespace MyCore
                     Console.WriteLine("{0} has inserted. time use {1}ms. speed {2} rpms", mCount, sp.ElapsedMilliseconds, mCount / sp.ElapsedMilliseconds);
                 }
             }
+
         }
     }
 }
