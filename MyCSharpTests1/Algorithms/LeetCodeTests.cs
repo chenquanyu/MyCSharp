@@ -181,5 +181,41 @@ namespace MyCSharp.Algorithms.Tests
             var result = leetCode.MinWindow(s, t);
 
         }
+
+        [TestMethod()]
+        public void SubsetsTest()
+        {
+            var nums = new int[] { 1, 2, 3 };
+            var result = leetCode.Subsets(nums);
+            Console.WriteLine(JsonConvert.SerializeObject(result));
+
+        }
+
+        [TestMethod()]
+        public void ExistTest()
+        {
+            var board = JsonConvert.DeserializeObject<char[][]>("[[\"a\",\"b\"],[\"c\",\"d\"]]");
+            string word = "abdc";
+
+            Assert.IsTrue(leetCode.Exist(board, word));
+
+            board = JsonConvert.DeserializeObject<char[][]>("[[\"a\",\"b\"],[\"c\",\"d\"]]");
+            word = "abdcd";
+
+            Assert.IsFalse(leetCode.Exist(board, word));
+
+            board = JsonConvert.DeserializeObject<char[][]>("[[\"a\"]]");
+            word = "a";
+
+            Assert.IsTrue(leetCode.Exist(board, word));
+
+
+            board = JsonConvert.DeserializeObject<char[][]>("[[\"C\",\"A\",\"A\"],[\"A\",\"A\",\"A\"],[\"B\",\"C\",\"D\"]]");
+            word = "AAB";
+
+            Assert.IsTrue(leetCode.Exist(board, word));
+
+
+        }
     }
 }

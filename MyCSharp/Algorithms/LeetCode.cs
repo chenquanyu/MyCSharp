@@ -573,5 +573,110 @@ namespace MyCSharp.Algorithms
         }
 
 
+        /// <summary>
+        /// 78. Subsets 
+        /// Given a set of distinct integers, nums, return all possible subsets (the power set).
+        /// </summary>
+        public IList<IList<int>> Subsets(int[] nums)
+        {
+            var result = new List<IList<int>>
+            {
+                new List<int>()
+            };
+
+            if (nums == null || nums.Length == 0)
+            {
+                return result;
+            }
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                var current = nums[i];
+                for (int j = result.Count - 1; j >= 0; j--)
+                {
+                    var item = result[j].ToList();
+                    item.Add(current);
+                    result.Add(item);
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 79. Word Search
+        /// Given a 2D board and a word, find if the word exists in the grid.
+        /// </summary>
+        public bool Exist(char[][] board, string word)
+        {
+            Dictionary<char, int> dict = new Dictionary<char, int>();
+            int rowNo = board.Length;
+            int colNo = board[0].Length;
+            bool[,] status = new bool[rowNo, colNo];
+            for (int i = 0; i < rowNo; i++)
+                for (int j = 0; j < colNo; j++)
+                {
+                    if (CheckWord(board, word, status, 0, i, j))
+                    {
+                        return true;
+                    }
+
+                    continue;
+                }
+
+            return false;
+        }
+
+        private bool CheckWord(char[][] board, string word, bool[,] status, int index, int i, int j)
+        {
+            int rowNo = board.Length;
+            int colNo = board[0].Length;
+
+            if (word[index] == board[i][j])
+            {
+                status[i, j] = true;
+                if (index + 1 == word.Length)
+                {
+                    return true;
+                }
+
+                var adj = GetNotUsedAdj(status, rowNo, colNo, i, j);
+
+                foreach (var point in adj)
+                {
+                    if (CheckWord(board, word, status, index + 1, point.X, point.Y))
+                    {
+                        return true;
+                    }
+
+                    status[point.X, point.Y] = false;
+                    continue;
+                }
+
+            }
+
+            status[i, j] = false;
+            return false;
+        }
+
+        private List<Point> GetNotUsedAdj(bool[,] status, int rowNo, int colNo, int i, int j)
+        {
+            List<Point> adj = new List<Point>();
+            if (i - 1 >= 0 && !status[i - 1, j]) adj.Add(new Point { X = i - 1, Y = j });
+            if (i + 1 < rowNo && !status[i + 1, j]) adj.Add(new Point { X = i + 1, Y = j });
+            if (j - 1 >= 0 && !status[i, j - 1]) adj.Add(new Point { X = i, Y = j - 1 });
+            if (j + 1 < colNo && !status[i, j + 1]) adj.Add(new Point { X = i, Y = j + 1 });
+            return adj;
+        }
+
+        public class Point
+        {
+            public int X { get; set; }
+            public int Y { get; set; }
+        }
+
+
+
+
     }
 }
