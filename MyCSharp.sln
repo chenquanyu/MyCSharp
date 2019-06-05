@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFrameConsole", "MyFrameCo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DBHelper", "DBHelper\DBHelper.csproj", "{322CC2E2-E4BD-4934-9C06-FF2FA2290BC4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyWeb2", "MyWeb2\MyWeb2.csproj", "{A3FF4B05-749E-47F7-A41F-22F7FE47409F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,14 @@ Global
 		{322CC2E2-E4BD-4934-9C06-FF2FA2290BC4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{322CC2E2-E4BD-4934-9C06-FF2FA2290BC4}.Release|x64.ActiveCfg = Release|Any CPU
 		{322CC2E2-E4BD-4934-9C06-FF2FA2290BC4}.Release|x64.Build.0 = Release|Any CPU
+		{A3FF4B05-749E-47F7-A41F-22F7FE47409F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FF4B05-749E-47F7-A41F-22F7FE47409F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3FF4B05-749E-47F7-A41F-22F7FE47409F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A3FF4B05-749E-47F7-A41F-22F7FE47409F}.Debug|x64.Build.0 = Debug|Any CPU
+		{A3FF4B05-749E-47F7-A41F-22F7FE47409F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3FF4B05-749E-47F7-A41F-22F7FE47409F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3FF4B05-749E-47F7-A41F-22F7FE47409F}.Release|x64.ActiveCfg = Release|Any CPU
+		{A3FF4B05-749E-47F7-A41F-22F7FE47409F}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
