@@ -33,7 +33,7 @@ namespace MyCSharp.DAL.Tests
                 players.Add(new Player
                 {
                     Birthday = new DateTime(1993, 1, 24),
-                    Comments = "自然拥有无限可能",
+                    Comments = "生活的秘密在于给予",
                     Gender = "男",
                     IsSingle = true,
                     Name = "小明",
@@ -41,32 +41,32 @@ namespace MyCSharp.DAL.Tests
                 });
             }
 
-            var dal = new DALBase();
+            //var dal = new DALBase();
 
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            dal.BatchInsert(players);
-            sw.Stop();
-            Console.WriteLine($"Insert Time: {sw.ElapsedMilliseconds} ms");
+            //Stopwatch sw = new Stopwatch();
+            //sw.Start();
+            //dal.BatchInsert(players);
+            //sw.Stop();
+            //Console.WriteLine($"Insert Time: {sw.ElapsedMilliseconds} ms");
 
         }
 
         [TestMethod()]
         public void BatchUpdateTest()
         {
-            var dal = new DALBase();
-            var players = dal.context.Player.Take(10000).ToList();
-            foreach (var item in players)
-            {
-                item.Name = "小月";
-            }
+            //var dal = new DALBase();
+            //var players = dal.context.Player.Take(10000).ToList();
+            //foreach (var item in players)
+            //{
+            //    item.Name = "小月";
+            //}
 
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            dal.context.SaveChanges();
-            //dal.BatchUpdate(players);
-            sw.Stop();
-            Console.WriteLine($"Update Time: {sw.ElapsedMilliseconds} ms");
+            //Stopwatch sw = new Stopwatch();
+            //sw.Start();
+            //dal.context.SaveChanges();
+            ////dal.BatchUpdate(players);
+            //sw.Stop();
+            //Console.WriteLine($"Update Time: {sw.ElapsedMilliseconds} ms");
         }
 
         [TestMethod()]
