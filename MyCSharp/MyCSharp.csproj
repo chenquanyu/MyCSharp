@@ -103,6 +103,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithms\Cryptography.cs" />
     <Compile Include="Algorithms\Graph.cs" />
     <Compile Include="Algorithms\LeetCode.cs" />
     <Compile Include="ClrPractice\AwaitSeq.cs" />
