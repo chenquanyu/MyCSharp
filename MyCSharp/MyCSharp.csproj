@@ -109,9 +109,10 @@
     <Compile Include="ClrPractice\AwaitSeq.cs" />
     <Compile Include="ClrPractice\GCNotification.cs" />
     <Compile Include="DAL\DALBase.cs" />
+    <Compile Include="Delegate\EventSample.cs" />
+    <Compile Include="Delegate\SubscribePattern.cs" />
     <Compile Include="DesignPatterns\AbstractFactory.cs" />
     <Compile Include="DesignPatterns\Builder.cs" />
-    <Compile Include="FailedDBHelper.cs" />
     <Compile Include="Migrations\201708180619273_InitialCreate.cs" />
     <Compile Include="Migrations\201708180619273_InitialCreate.Designer.cs">
       <DependentUpon>201708180619273_InitialCreate.cs</DependentUpon>
@@ -159,6 +160,7 @@
       <DependentUpon>201708180646081_AddPlayer01.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

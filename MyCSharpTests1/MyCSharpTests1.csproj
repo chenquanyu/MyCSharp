@@ -111,6 +111,7 @@
     <Compile Include="Algorithms\LeetCodeTests.cs" />
     <Compile Include="ClrPractice\AwaitSeqTests.cs" />
     <Compile Include="DAL\DALBaseTests.cs" />
+    <Compile Include="BasicTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\MyCsvHelperTests.cs" />
     <Compile Include="Utility\NpoiHelperTests.cs" />

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace MyCSharp.Algorithms
 {
@@ -675,7 +674,28 @@ namespace MyCSharp.Algorithms
             public int Y { get; set; }
         }
 
+        public int LargestRectangleArea(int[] heights)
+        {
+            int maxArea = 0;
+            int index = 0;
+            var stack = new Stack<int>();
+            while (index <= heights.Length)
+            {
+                if (stack.Count() == 0 || (index < heights.Length && heights[stack.Peek()] <= heights[index]))
+                {
+                    stack.Push(index++);
+                }
+                else
+                {
+                    int height = heights[stack.Pop()];
+                    int length = stack.Count() == 0 ? index : index - stack.Peek() - 1;
+                    maxArea = Math.Max(maxArea, height * length);
+                }
+            }
 
+            return maxArea;
+
+        }
 
 
     }

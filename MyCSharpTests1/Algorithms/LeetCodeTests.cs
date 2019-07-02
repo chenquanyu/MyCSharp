@@ -1,13 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MyCSharp.Algorithms;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyCSharp.Algorithms.Tests
 {
@@ -220,5 +213,13 @@ namespace MyCSharp.Algorithms.Tests
 
         }
 
+        [TestMethod()]
+        public void LargestRectangleAreaTest()
+        {
+            //Assert.AreEqual(1, leetCode.LargestRectangleArea(new[] { 1 }));
+            Assert.AreEqual(3, leetCode.LargestRectangleArea(new[] { 2, 1, 2 }));
+            Assert.AreEqual(10, leetCode.LargestRectangleArea(new[] { 2, 1, 5, 6, 2, 3 }));
+            Assert.AreEqual(100, leetCode.LargestRectangleArea(new[] { 2, 1, 5, 100, 2, 3 }));
+        }
     }
 }
