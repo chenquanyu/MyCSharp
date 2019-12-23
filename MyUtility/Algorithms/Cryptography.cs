@@ -1,6 +1,8 @@
-﻿using System;
+﻿using MyUtility.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
@@ -90,5 +92,20 @@ namespace MyUtility.Algorithms
             }
         }
 
+        // random select m numbers from total
+        public static List<int> RandomSelect(int m, int total)
+        {
+            byte[] seed = BytesHelper.GenRandomBytes(256);
+            Dictionary<string, int> cache = new Dictionary<string, int>();
+            for (int i = 0; i < total; i++)
+            {
+                string hash = Sha256(BitConverter.GetBytes(i + 1).Concat(seed)).ToHexString();
+
+                //string hash = BitConverter.GetBytes(BitConverter.ToInt32(seed, i % 224) ^ (i + 1)).ToHexString();
+                cache.Add(hash, i + 1);
+            }
+
+            return cache.OrderBy(p => p.Key).Take(m).Select(p => p.Value).ToList();
+        }
     }
 }

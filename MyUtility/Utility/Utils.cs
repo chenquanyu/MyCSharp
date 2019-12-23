@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyCSharp
 {
     public static class Utils
     {
-        public static System.DateTime ParseDate(string sDate)
+        public static DateTime ParseDate(string sDate)
         {
             if (sDate.Length == 8)
                 sDate = sDate.Substring(0, 4) + "-" + sDate.Substring(4, 2) + "-" + sDate.Substring(6, 2);
@@ -21,7 +18,7 @@ namespace MyCSharp
 
         public static void CopyProperty<T1, T2>(T1 obj1, T2 obj2)
         {
-            dynamic proList = typeof(T2).GetProperties();
+            var proList = typeof(T2).GetProperties();
             foreach (PropertyInfo pro2 in proList)
             {
                 PropertyInfo pro1 = typeof(T1).GetProperty(pro2.Name);
@@ -51,17 +48,5 @@ namespace MyCSharp
         {
             return string.Join(split, a.Select(p => $"{left}{p}{right}"));
         }
-
-        public static string ToHexString(this byte[] value)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (byte b in value)
-                sb.AppendFormat("{0:x2}", b);
-            return sb.ToString();
-        }
-
-
     }
-
-
 }
