@@ -10,12 +10,13 @@ namespace MyUtility.Algorithms.Tests
         [TestMethod()]
         public void RandomSelectTest()
         {
-            int times = 10000;
-            int[] selectedTimes = new int[100];
+            int times = 1000;
+            int total = 2000;
+            int[] selectedTimes = new int[total];
 
             for (int i = 0; i < times; i++)
             {
-                var result = Cryptography.RandomSelect(10, 100);
+                var result = Cryptography.RandomSelect(total / 10, total);
                 foreach (int item in result)
                 {
                     selectedTimes[item - 1]++;

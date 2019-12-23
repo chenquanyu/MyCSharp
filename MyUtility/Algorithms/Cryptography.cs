@@ -96,16 +96,16 @@ namespace MyUtility.Algorithms
         public static List<int> RandomSelect(int m, int total)
         {
             byte[] seed = BytesHelper.GenRandomBytes(256);
-            Dictionary<string, int> cache = new Dictionary<string, int>();
+            var cache = new List<KeyValuePair<int, int>>();
             for (int i = 0; i < total; i++)
             {
-                string hash = Sha256(BitConverter.GetBytes(i + 1).Concat(seed)).ToHexString();
+                //int hash = BitConverter.ToInt32(Sha256(BitConverter.GetBytes(i + 1).Concat(seed)), 0);
 
-                //string hash = BitConverter.GetBytes(BitConverter.ToInt32(seed, i % 224) ^ (i + 1)).ToHexString();
-                cache.Add(hash, i + 1);
+                int hash = BitConverter.ToInt32(seed, i % 224) ^ (i + 1);
+                cache.Add(new KeyValuePair<int, int>(i + 1, hash));
             }
 
-            return cache.OrderBy(p => p.Key).Take(m).Select(p => p.Value).ToList();
+            return cache.OrderBy(p => p.Value).Take(m).Select(p => p.Key).ToList();
         }
     }
 }
